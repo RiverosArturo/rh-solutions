@@ -51,7 +51,7 @@ export const Navbar = () => {
 
           <button
             onClick={toggleLanguage}
-            className="ml-4 px-3 py-1 border rounded-full text-xs hover:bg-gray-100 transition"
+            className="ml-4 px-3 py-1 border-black border rounded-full text-xs hover:bg-gray-100 transition"
             aria-label="Cambiar idioma"
           >
             {language.toUpperCase()}
@@ -62,7 +62,7 @@ export const Navbar = () => {
         <div className="md:hidden flex items-center gap-2">
           <button
             onClick={toggleLanguage}
-            className="px-3 py-1 text-xs border rounded-full hover:bg-gray-100 transition"
+            className="ml-4 px-3 py-1 border-black border rounded-full text-xs hover:bg-gray-100 transition"
             aria-label="Cambiar idioma"
           >
             {language.toUpperCase()}
