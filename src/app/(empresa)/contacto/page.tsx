@@ -90,7 +90,7 @@ export default function ContactoPage() {
 
                 <div className="flex justify-center gap-6 text-4xl">
                     <a
-                        href="https://facebook.com"
+                        href="https://www.facebook.com/share/16VVFCaeCu/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-800 transition"
@@ -99,7 +99,7 @@ export default function ContactoPage() {
                         <FaFacebook />
                     </a>
                     <a
-                        href="https://instagram.com"
+                        href="https://www.instagram.com/rhsolutions_oficial?igsh=OGozMjZqOW44YjZp"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-pink-500 hover:text-pink-600 transition"
