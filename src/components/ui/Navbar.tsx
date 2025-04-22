@@ -1,0 +1,107 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguageStore, useUiNavbar } from '@/store';
+import { getNavLinks } from '@/utils';
+
+export const Navbar = () => {
+  const pathname = usePathname();
+  const { language, toggleLanguage } = useLanguageStore();
+  const isDrawerOpen = useUiNavbar(state => state.isDrawerOpen);
+  const toggleDrawer = useUiNavbar(state => state.toggleDrawer);
+  const closeDrawer = useUiNavbar(state => state.closeDrawer);
+  const navLinks = getNavLinks(language);
+
+  const isActive = (href: string) => pathname === href;
+
+  return (
+    <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="https://res.cloudinary.com/dsu3au60t/image/upload/v1745271496/logo_rhz1cv.png"
+            alt="RH Solutions Logo"
+            width={36}
+            height={36} // ✅ Necesario para evitar advertencia
+            className="rounded-full shadow-sm"
+            priority
+            style={{ width: 'auto' }}
+          />
+          <span className="text-xl sm:text-2xl font-extrabold text-gray-800 tracking-tight">
+            <span className="text-blue-600">Solutions</span>
+          </span>
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-6 text-sm sm:text-base font-medium text-gray-700">
+          {navLinks.map(({ name, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`relative px-2 py-1 transition-colors duration-200 hover:text-blue-600 ${isActive(href) ? 'text-blue-600 font-semibold underline underline-offset-4' : ''
+                }`}
+            >
+              {name}
+            </Link>
+          ))}
+
+          <button
+            onClick={toggleLanguage}
+            className="ml-4 px-3 py-1 border rounded-full text-xs hover:bg-gray-100 transition"
+            aria-label="Cambiar idioma"
+          >
+            {language.toUpperCase()}
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleLanguage}
+            className="px-3 py-1 text-xs border rounded-full hover:bg-gray-100 transition"
+            aria-label="Cambiar idioma"
+          >
+            {language.toUpperCase()}
+          </button>
+          <button
+            onClick={toggleDrawer}
+            className="text-gray-700"
+            aria-label="Abrir menú"
+          >
+            {isDrawerOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isDrawerOpen && (
+          <motion.ul
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden px-6 pb-6 pt-3 space-y-4 text-gray-700 font-medium bg-white/95 shadow-md rounded-b-xl"
+          >
+            {navLinks.map(({ name, href }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  onClick={closeDrawer}
+                  className={`block py-1 px-2 rounded transition-colors duration-200 ${isActive(href) ? 'text-blue-600 font-semibold bg-gray-100' : 'hover:text-blue-600'
+                    }`}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
