@@ -12,41 +12,33 @@ type FormInputs = {
   phone?: string;
   service: string;
   message: string;
-}
+};
 
 export const ContactForm = () => {
-  const { handleSubmit, reset, register, formState: { isValid } } = useForm<FormInputs>();
-  const [button2, setButton] = useState<boolean>(false);
+  const { handleSubmit, reset, register, formState: { errors, isValid } } = useForm<FormInputs>({ mode: 'onChange' });
+  const [button2, setButton] = useState(false);
   const { language } = useLanguageStore();
   const { h2, label1, placeholderL1, label2, placeholderL2, label3, placeholderL3, label4, label4Opcion, label5, placeholderL5, button } = contactForm(language);
-  
+
   const onSubmit = async (data: FormInputs) => {
+    if (button2) return; // Evita clics múltiples
     setButton(true);
-    const { name, email, phone, service, message = "" } = data;
-    setButton(true);
-    const response = await fetch('/api/contactoEmail',{
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            name,
-            email,
-            phone,
-            service,
-            message
-        })
+
+    const res = await fetch('/api/contactoEmail', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data)
     });
-    
-    const res = await response.json();
-    if (res.success === true) {
+
+    const result = await res.json();
+    if (result.success === true) {
       formAlert(language);
     } else {
-      formAlertError(language, res.message);
+      formAlertError(language, result.message);
     }
     reset();
     setButton(false);
-  }
+  };
 
   return (
     <motion.section
@@ -61,57 +53,60 @@ export const ContactForm = () => {
       </h2>
 
       <form
-        className="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-8 md:p-10 space-y-6"
         onSubmit={handleSubmit(onSubmit)}
+        className="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-8 md:p-10 space-y-6"
       >
+        {/* Nombre */}
         <div className="space-y-2">
           <label htmlFor="name" className="font-semibold text-gray-700">{label1}</label>
           <input
             id="name"
-            autoComplete="name"
             type="text"
             placeholder={placeholderL1}
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register('name', { required: true })}
+            className="w-full p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+            {...register('name', { required: 'Este campo es requerido' })}
           />
+          {errors.name && <p className="text-sm text-red-600">{errors.name.message}</p>}
         </div>
 
+        {/* Email */}
         <div className="space-y-2">
           <label htmlFor="email" className="font-semibold text-gray-700">{label2}</label>
           <input
             id="email"
-            autoComplete="email"
             type="email"
             placeholder={placeholderL2}
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
             {...register('email', {
-              required: 'El correo es requerido',
+              required: 'Este campo es requerido',
               pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: 'Ingrese un correo valido'
+                value: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
+                message: 'Correo no válido'
               }
             })}
           />
+          {errors.email && <p className="text-sm text-red-600">{errors.email.message}</p>}
         </div>
 
+        {/* Teléfono */}
         <div className="space-y-2">
           <label htmlFor="phone" className="font-semibold text-gray-700">{label3}</label>
           <input
             id="phone"
-            autoComplete="phone"
             type="tel"
             placeholder={placeholderL3}
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
             {...register('phone')}
           />
         </div>
 
+        {/* Servicio */}
         <div className="space-y-2">
           <label htmlFor="service" className="font-semibold text-gray-700">{label4}</label>
           <select
             id="service"
-            className="w-full p-4 rounded-xl border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register('service', { required: true })}
+            className="w-full p-4 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-blue-500"
+            {...register('service', { required: 'Selecciona una opción' })}
           >
             <option value="">{label4Opcion.opcion}</option>
             <option value="página web">{label4Opcion.web}</option>
@@ -120,27 +115,32 @@ export const ContactForm = () => {
             <option value="sistema interno">{label4Opcion.sistema}</option>
             <option value="otro">{label4Opcion.otro}</option>
           </select>
+          {errors.service && <p className="text-sm text-red-600">{errors.service.message}</p>}
         </div>
 
+        {/* Mensaje */}
         <div className="space-y-2">
           <label htmlFor="message" className="font-semibold text-gray-700">{label5}</label>
           <textarea
             id="message"
-            {...register('message', { required: true })}
-            rows={5}
             placeholder={placeholderL5}
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows={5}
+            className="w-full p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+            {...register('message', { required: 'Este campo es requerido' })}
           ></textarea>
+          {errors.message && <p className="text-sm text-red-600">{errors.message.message}</p>}
         </div>
 
+        {/* Botón */}
         <button
           type="submit"
-          disabled={button2}
-          className={`w-full bg-gradient-to-r ${isValid ? 'from-blue-600 to-indigo-600 text-white' : 'bg-red-500 text-white'} py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 duration-300`}
+          disabled={button2 || !isValid}
+          className={`w-full py-4 rounded-xl font-semibold shadow-lg transition-transform duration-300 hover:-translate-y-1 ${isValid ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:shadow-xl' : 'bg-gray-400 text-white cursor-not-allowed'
+            } ${button2 ? 'opacity-50 pointer-events-none' : ''}`}
         >
           {button} 🚀
         </button>
       </form>
     </motion.section>
-  )
-}
+  );
+};

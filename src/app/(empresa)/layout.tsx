@@ -7,7 +7,7 @@ export default function ShopLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-screen">
+    <main className="bg-white min-h-screen">
       <Navbar />
         <div>
             {children}
