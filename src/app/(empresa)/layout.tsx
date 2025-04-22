@@ -1,4 +1,4 @@
-import { Footer, Navbar } from "@/components";
+import { Footer, Navbar, WhatsAppButton } from "@/components";
 
 
 export default function ShopLayout({
@@ -11,6 +11,7 @@ export default function ShopLayout({
       <Navbar />
         <div>
             {children}
+            <WhatsAppButton />
         </div>
       <Footer />
     </main>

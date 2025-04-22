@@ -5,4 +5,5 @@ export * from './ui/Navbar';
 export * from './ui/Proyectos';
 export * from './ui/Servicios';
 export * from './ui/Testimonios';
+export * from './ui/WhatsAppButton';
 export * from './ui/not-found/PageNotFound';

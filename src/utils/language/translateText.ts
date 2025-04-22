@@ -9,7 +9,7 @@ export const heroIni = (language: 'es' | 'en') => ({
     h1: language === "es" ? "Soluciones Digitales" : "Digital Solutions",
     h2: language === "es" ? "a tu Medida" : "tailored to You",
     p: language === "es" ? "Desarrollamos sitios y apps web que optimizan tus procesos, ahorran tiempo y potencian el crecimiento de tu empresa." : "We develop websites and web apps that optimize your processes, save time, and boost the growth of your company.",
-    button: language === "es" ? "Solicita tu cotización sin compromiso" : "Request your quote without obligation"
+    button: language === "es" ? "Solicita tu cotización gratis" : "Request your free quote"
 });
 
 export const serviciosT = (language: 'es' | 'en') => ({
@@ -18,7 +18,7 @@ export const serviciosT = (language: 'es' | 'en') => ({
         {
             form: "💻",
             h3: language === "es" ? "Desarrollo web" : "Web Development",
-            p: language === "es" ? "Sitios responsivos, rápidos y personalizados para destacar tu negocio online." : "Responsive, fast, and personalized websites to make your business stand out online.",
+            p: language === "es" ? "Creamos páginas web personalizadas, rápidas y optimizadas para celulares. Desde sitios informativos hasta tiendas en línea (e-commerce)." : "We create customized, fast, and mobile-optimized websites. From informational sites to online stores (e-commerce).",
         },
         {
             form: "🧩",
@@ -40,22 +40,31 @@ export const proyectosT = (language: 'es' | 'en') => ({
             titulo: 'Hotel Danini',
             imagen: 'https://res.cloudinary.com/dsu3au60t/image/upload/v1745271497/hotelDanini_zu7tvl.png',
             link: 'https://hoteldanini.com',
+            descripcion: language === "es"
+                ?"Desarrollamos una web optimizada que impulsó sus reservas directas y aumentó su visibilidad online. El resultado: mayor ocupación y una conexión más rentable con sus huéspedes."
+                :"We developed an optimized website that boosted their direct bookings and increased their online visibility. The result: higher occupancy and a more profitable connection with their guests.",
         },
         {
             titulo: 'Santa Fé Casa Club',
             imagen: 'https://res.cloudinary.com/dsu3au60t/image/upload/v1745271497/santafeCasaClub_wttbxy.png',
             link: 'https://santafecasaclub.com',
+            descripcion: language === "es"
+                ?"Impulsamos la experiencia familiar y deportiva de Santa Fe Casa Club a través de un diseño web centrado en sus servicios exclusivos: desde gimnasio y piscina hasta áreas de juego y restaurante. El resultado: mayor atracción de miembros y eventos, fortaleciendo su comunidad y la calidad de vida de sus socios."
+                :"We promoted the family and sports experience of Santa Fe Casa Club through a website design focused on its exclusive services: from the gym and pool to the playground and restaurant. The result: increased membership and event attraction, strengthening its community and its members' quality of life.",
         },
         {
             titulo: 'Teslo Shop',
             imagen: 'https://res.cloudinary.com/dsu3au60t/image/upload/v1745271496/teslo_e8o9s3.png',
             link: 'https://teslo-shop-five-bice.vercel.app',
+            descripcion: language === "es"
+                ?"Proyecto personal de e-commerce desarrollado para la práctica y aplicación de tecnologías web modernas en la creación de una tienda online funcional y atractiva. Se exploraron e implementaron diversas funcionalidades de comercio electrónico, desde la visualización de productos hasta la gestión de carritos y simulación de procesos de compra, con el objetivo de fortalecer habilidades técnicas y comprender el flujo completo de una plataforma de venta en línea."
+                :"Personal e-commerce project developed to practice and apply modern web technologies to create a functional and attractive online store. Various e-commerce functionalities were explored and implemented, from product display to shopping cart management and purchasing process simulation, with the goal of strengthening technical skills and understanding the complete flow of an online sales platform.",
         },
     ]
 });
 
 export const contactForm = (language: 'es' | 'en') => ({
-    h2: language === "es" ? "¿Tienes una idea o necesitas una solución a medida? Cuéntanos más y nos pondremos en contacto contigo lo antes posible." : "Do you have an idea or need a custom solution? Tell us more and we'll get back to you as soon as possible.",
+    h2: language === "es" ? "¿Tienes un proyecto en mente? Escribenos y te respondemos en menos de 24 horas." : "Do you have a project in mind? Write to us and we'll respond within 24 hours.",
     label1: language === "es" ? "Nombre completo" : "Full Name",
     placeholderL1: language === "es" ? "Ej. Juan Pérez" : "e.g. John Doe",
     label2: language === "es" ? "Correo electrónico" : "Email Address",
