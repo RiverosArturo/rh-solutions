@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rh-solutions.vercel.app
+
+# Sitemaps
+Sitemap: https://rh-solutions.vercel.app/sitemap.xml

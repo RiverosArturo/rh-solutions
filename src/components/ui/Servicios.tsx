@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageStore } from "@/store";
 import { serviciosT } from "@/utils";
 import { motion } from "framer-motion";
