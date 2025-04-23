@@ -1,4 +1,5 @@
 import { Ventajas } from "@/components";
+import Head from "next/head";
 
 
 export const metadata = {
@@ -22,8 +23,23 @@ export const metadata = {
 };
 
 export default function PorQueDigitalizarPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Ventajas - RH Solutions",
+    "url": "https://rh-solutions.vercel.app/ventajas",
+    "description": "Descubre las ventajas de trabajar con RH Solutions, incluyendo soluciones personalizadas, eficiencia operativa y soporte continuo."
+  }; 
   
   return (
-    <Ventajas />
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
+      <Ventajas />
+    </>
   )
 }

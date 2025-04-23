@@ -1,5 +1,5 @@
+import Head from "next/head";
 import { Contacto } from "@/components";
-
 
 export const metadata = {
     title: "Contáctanos | RH Solutions",
@@ -22,7 +22,42 @@ export const metadata = {
 };
 
 export default function ContactoPage() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contacto - RH Solutions",
+        "url": "https://rh-solutions.vercel.app/contacto",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "RH Solutions",
+            "url": "https://rh-solutions.vercel.app",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+52-231-139-2413",
+                "contactType": "customer support",
+                "areaServed": "MX",
+                "availableLanguage": ["es", "en"]
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Remoto",
+                "addressLocality": "Teziutlán",
+                "addressRegion": "Puebla",
+                "postalCode": "73885",
+                "addressCountry": "MX"
+            }
+        }
+    };
+
     return (
-        <Contacto />
-    )
+        <>
+            <Head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            </Head>
+            <Contacto />
+        </>
+    );
 }

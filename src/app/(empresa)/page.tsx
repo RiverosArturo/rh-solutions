@@ -1,4 +1,5 @@
 import { ContactForm, HeroInicio, Proyectos, Servicios } from "@/components";
+import Head from "next/head";
 
 export const metadata = {
   title: "Soluciones Digitales para Negocios | RH Solutions",
@@ -22,14 +23,29 @@ export const metadata = {
 
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "RH Solutions",
+    "url": "https://rh-solutions.vercel.app/",
+  }
+
   return (
-    <main className="min-h-screen bg-white text-gray-800">
-      <HeroInicio />
-      <Servicios />
-      <Proyectos />
-      <div className="py-20 px-6">
-        <ContactForm />
-      </div>
-    </main>
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
+      <main className="min-h-screen bg-white text-gray-800">
+        <HeroInicio />
+        <Servicios />
+        <Proyectos />
+        <div className="py-20 px-6">
+          <ContactForm />
+        </div>
+      </main>
+    </>
   );
 }

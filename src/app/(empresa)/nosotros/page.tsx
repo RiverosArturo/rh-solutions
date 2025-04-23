@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Nosotros } from "@/components";
 
 export const metadata = {
@@ -21,8 +22,32 @@ export const metadata = {
 };
 
 export default function NosotrosPage() {
-  
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Nosotros - RH Solutions",
+    "url": "https://rh-solutions.vercel.app/nosotros",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "RH Solutions",
+      "url": "https://rh-solutions.vercel.app",
+      "logo": "https://res.cloudinary.com/dsu3au60t/image/upload/v1745367143/metadata_hxdnz0.png",
+      "sameAs": [
+        "https://www.facebook.com/share/16VVFCaeCu/",
+        "https://www.instagram.com/rhsolutions_oficial?igsh=OGozMjZqOW44YjZp"
+      ]
+    }
+  }
+
   return (
-    <Nosotros />
-  )
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
+      <Nosotros />
+    </>
+  );
 }
