@@ -4,6 +4,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rh-solutions.vercel.app"),
   title: "RH Solutions",
   description: "Soluciones digitales en desarrollo web y apps",
 };
