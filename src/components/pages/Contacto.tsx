@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaWhatsapp, FaEnvelope } from 'react-icons/fa'
 import { ContactForm } from '@/components';
 import { useLanguageStore } from '@/store';
 import { contactoTexto, fadeIn } from '@/utils';
+import Link from 'next/link';
 
 export const Contacto = () => {
     const { language } = useLanguageStore();
@@ -24,12 +25,12 @@ export const Contacto = () => {
                     {hero.desc} <strong className="text-blue-600">{hero.desc2}</strong> {hero.desc3}
                 </p>
                 <div className="mt-8 flex justify-center">
-                    <a
+                    <Link
                         href="#seccontacto"
                         className="bg-blue-600 hover:bg-blue-700 transition text-white font-semibold px-6 py-3 rounded-full shadow-lg"
                     >
                         {hero.button}
-                    </a>
+                    </Link>
                 </div>
             </motion.section>
 
@@ -75,7 +76,7 @@ export const Contacto = () => {
                 <p className="text-gray-600 mb-6">{redes.desc}</p>
 
                 <div className="flex justify-center gap-6 text-4xl">
-                    <a
+                    <Link
                         href="https://www.facebook.com/share/16VVFCaeCu/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -83,8 +84,8 @@ export const Contacto = () => {
                         aria-label="Facebook"
                     >
                         <FaFacebook />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="https://www.instagram.com/rhsolutions_oficial?igsh=OGozMjZqOW44YjZp"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -92,8 +93,8 @@ export const Contacto = () => {
                         aria-label="Instagram"
                     >
                         <FaInstagram />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="https://wa.me/5212311392413"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -101,14 +102,14 @@ export const Contacto = () => {
                         aria-label="WhatsApp"
                     >
                         <FaWhatsapp />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="mailto:rh.solutions.contacto@gmail.com"
                         className="text-gray-600 hover:text-gray-800 transition"
                         aria-label="Correo"
                     >
                         <FaEnvelope />
-                    </a>
+                    </Link>
                 </div>
             </motion.section>
 

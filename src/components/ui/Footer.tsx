@@ -1,6 +1,7 @@
 "use client";
 import { FaFacebook, FaInstagram, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import { useLanguageStore } from "@/store";
+import Link from 'next/link';
 
 export const Footer = () => {
   const { language } = useLanguageStore();
@@ -13,7 +14,7 @@ export const Footer = () => {
         <p className="text-lg font-medium mb-2">{texto}</p>
 
         <div className="flex justify-center gap-4 my-4">
-          <a
+          <Link
             href="https://www.facebook.com/share/16VVFCaeCu/"
             target="_blank"
             rel="noopener noreferrer"
@@ -21,8 +22,8 @@ export const Footer = () => {
             className="bg-blue-100 hover:bg-blue-200 p-3 rounded-full transition text-blue-600 text-xl"
           >
             <FaFacebook />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://www.instagram.com/rhsolutions_oficial?igsh=OGozMjZqOW44YjZp"
             target="_blank"
             rel="noopener noreferrer"
@@ -30,8 +31,8 @@ export const Footer = () => {
             className="bg-pink-100 hover:bg-pink-200 p-3 rounded-full transition text-pink-500 text-xl"
           >
             <FaInstagram />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://wa.me/5212311392413"
             target="_blank"
             rel="noopener noreferrer"
@@ -39,14 +40,14 @@ export const Footer = () => {
             className="bg-green-100 hover:bg-green-200 p-3 rounded-full transition text-green-500 text-xl"
           >
             <FaWhatsapp />
-          </a>
-          <a
+          </Link>
+          <Link
             href="mailto:rh.solutions.contacto@gmail.com"
             aria-label="Correo"
             className="bg-gray-200 hover:bg-gray-300 p-3 rounded-full transition text-gray-700 text-xl"
           >
             <FaEnvelope />
-          </a>
+          </Link>
         </div>
 
         <p className="text-sm mt-6">

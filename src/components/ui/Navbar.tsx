@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguageStore, useUiNavbar } from '@/store';
 import { getNavLinks } from '@/utils';
+import { useEffect, useRef } from 'react';
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -15,18 +16,33 @@ export const Navbar = () => {
   const toggleDrawer = useUiNavbar(state => state.toggleDrawer);
   const closeDrawer = useUiNavbar(state => state.closeDrawer);
   const navLinks = getNavLinks(language);
+  const mobileMenuRef = useRef<HTMLUListElement>(null);
 
   const isActive = (href: string) => pathname === href;
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isDrawerOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node) && !(event.target as Element).closest('button[aria-label="Abrir menú"]')) {
+        closeDrawer();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDrawerOpen, closeDrawer]);
 
   return (
     <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" onClick={closeDrawer} className="flex items-center gap-2">
           <Image
             src="https://res.cloudinary.com/dsu3au60t/image/upload/v1745271496/logo_rhz1cv.png"
             alt="RH Solutions Logo"
             width={36}
-            height={36} // ✅ Necesario para evitar advertencia
+            height={36}
             className="rounded-full shadow-sm"
             priority
             style={{ width: 'auto' }}
@@ -37,7 +53,7 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6 text-sm sm:text-base font-medium text-gray-700">
+        <div className="hidden lg:flex items-center gap-6 text-sm sm:text-base font-medium text-gray-700">
           {navLinks.map(({ name, href }) => (
             <Link
               key={href}
@@ -59,7 +75,7 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <button
             onClick={toggleLanguage}
             className="ml-4 px-3 py-1 text-black border-black border rounded-full text-xs hover:bg-gray-100 transition"
@@ -81,11 +97,12 @@ export const Navbar = () => {
       <AnimatePresence>
         {isDrawerOpen && (
           <motion.ul
+            ref={mobileMenuRef}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden px-6 pb-6 pt-3 space-y-4 text-gray-700 font-medium bg-white/95 shadow-md rounded-b-xl"
+            className="lg:hidden px-6 pb-6 pt-3 space-y-4 text-gray-700 font-medium bg-white/95 shadow-md rounded-b-xl"
           >
             {navLinks.map(({ name, href }) => (
               <li key={href}>

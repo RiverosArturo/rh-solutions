@@ -9,6 +9,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { useLanguageStore } from '@/store';
 import { proyectosT } from '@/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const Proyectos = () => {
   const { language } = useLanguageStore();
@@ -62,14 +63,14 @@ export const Proyectos = () => {
                 <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                   {proyecto.descripcion}
                 </p>
-                <a
+                <Link
                   href={proyecto.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium transition"
                 >
                   Ver proyecto →
-                </a>
+                </Link>
               </div>
             </motion.div>
           </SwiperSlide>

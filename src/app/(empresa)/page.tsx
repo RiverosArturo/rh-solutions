@@ -42,7 +42,7 @@ export default function Home() {
         <HeroInicio />
         <Servicios />
         <Proyectos />
-        <div className="py-20 px-6">
+        <div className="py-20 px-6" id="seccontacto">
           <ContactForm />
         </div>
       </main>

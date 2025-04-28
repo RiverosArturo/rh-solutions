@@ -2,6 +2,7 @@ export const getNavLinks = (language: 'es' | 'en') => [
     { name: language === 'es' ? "Inicio" : "Home", href: "/" },
     { name: language === 'es' ? "Ventajas" : "Benefits", href: "/ventajas" },
     { name: language === 'es' ? "Nosotros" : "About Us", href: "/nosotros" },
+    { name: language === 'es' ? "Nuestros Planes" : "Our Plans", href: "/plan" },
     { name: language === 'es' ? "Contacto" : "Contact Us", href: "/contacto" },
 ];
 
@@ -343,3 +344,41 @@ export const contactoTexto = (language: 'es' | 'en') => ({
             : 'Let’s talk about your project!',
     }
 });
+
+export const planTexto = (language: 'es' | 'en') => ({
+    title: language === 'es'
+        ?"Impulsa tu proyecto con nuestros planes"
+        :"Boost your project with our plans",
+    card1: {
+        title: language == 'es'
+            ?"Pago Único"
+            :"Single Payment",
+        p: language === 'es'
+            ?"Propiedad total de tu proyecto, inversión única y sin pagos recurrentes."
+            :"Full ownership of your project, a one-time investment, and no recurring payments.",
+        list: [
+            { name: language === 'es' ?"Inversión única" :"Single investment" },
+            { name: language === 'es' ?"1 mes de soporte gratis" :"1 month of free support" },
+            { name: language === 'es' ?"Diseño 100% personalizado" :"100% custom design" },
+            { name: language === 'es' ?"Escalabilidad garantizada" :"Guaranteed scalability" },
+        ],
+        p2: language === 'es' ?"Con una inversión única, impulsa tu proyecto en la web." :"With a one-time investment, boost your project on the web.",
+        button: language === 'es' ?"Solicitar Cotización" :"Request a Quote"
+    },
+    card2: {
+        title: language == 'es'
+            ?"Renta Mensual"
+            :"Monthly Rent",
+        p: language === 'es'
+            ?"Proyecto accesible sin alta inversión inicial. Hosting, soporte y actualizaciones incluidas."
+            :"Affordable project with no high initial investment. Hosting, support, and updates included.",
+        list: [
+            { name: language === 'es' ?"Hosting y mantenimiento incluidos" :"Hosting and maintenance included" },
+            { name: language === 'es' ?"Opción de compra futura" :"Future purchase option" },
+            { name: language === 'es' ?"Diseño 100% personalizado" :"100% custom design" },
+            { name: language === 'es' ?" Crece con tu negocio" :"Grow with your business" },
+        ],
+        p2: language === 'es' ?"Invierte en tu Presencia Online con un plan mensual accesible." :"Invest in your online presence with an affordable monthly plan.",
+        button: language === 'es' ?"Conocer Más" :"Learn more"
+    }
+})

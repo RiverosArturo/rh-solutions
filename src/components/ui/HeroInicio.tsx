@@ -31,7 +31,7 @@ export const HeroInicio = () => {
                     {p}
                 </motion.p>
 
-                <Link href="/contacto" passHref>
+                <Link href="#seccontacto" passHref>
                     <motion.button
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

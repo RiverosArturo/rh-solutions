@@ -1,5 +1,6 @@
 export * from './pages/Contacto';
 export * from './pages/Nosotros';
+export * from './pages/Plan';
 export * from './pages/Ventajas';
 export * from './ui/ContactForm';
 export * from './ui/Footer';
