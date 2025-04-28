@@ -27,7 +27,7 @@ export default function PorQueDigitalizarPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Ventajas - RH Solutions",
-    "url": "https://rh-solutions.vercel.app/ventajas",
+    "url": "https://rhsolutionsmx.com/ventajas",
     "description": "Descubre las ventajas de trabajar con RH Solutions, incluyendo soluciones personalizadas, eficiencia operativa y soporte continuo."
   }; 
   

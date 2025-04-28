@@ -26,11 +26,11 @@ export default function ContactoPage() {
         "@context": "https://schema.org",
         "@type": "ContactPage",
         "name": "Contacto - RH Solutions",
-        "url": "https://rh-solutions.vercel.app/contacto",
+        "url": "https://rhsolutionsmx.com//contacto",
         "mainEntity": {
             "@type": "Organization",
             "name": "RH Solutions",
-            "url": "https://rh-solutions.vercel.app",
+            "url": "https://rhsolutionsmx.com/",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+52-231-139-2413",

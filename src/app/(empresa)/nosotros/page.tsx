@@ -26,11 +26,11 @@ export default function NosotrosPage() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "name": "Nosotros - RH Solutions",
-    "url": "https://rh-solutions.vercel.app/nosotros",
+    "url": "https://rhsolutionsmx.com/nosotros",
     "mainEntity": {
       "@type": "Organization",
       "name": "RH Solutions",
-      "url": "https://rh-solutions.vercel.app",
+      "url": "https://rhsolutionsmx.com/",
       "logo": "https://res.cloudinary.com/dsu3au60t/image/upload/v1745367143/metadata_hxdnz0.png",
       "sameAs": [
         "https://www.facebook.com/share/16VVFCaeCu/",
