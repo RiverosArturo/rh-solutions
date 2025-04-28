@@ -3,12 +3,12 @@ import { Nosotros } from "@/components";
 
 export const metadata = {
   title: "Nosotros | RH Solutions",
-  description: "Conoce al equipo detrás de RH Solutions, expertos en desarrollo web y digitalización empresarial.",
+  description: "Conoce RH Solutions, expertos en desarrollo web y digitalización empresarial.",
   keywords: ["desarrollo web", "digitalización", "Next.js", "automatización", "tecnología para negocios"],
   openGraph: {
     title: "Nosotros | RH Solutions",
-    description: "Conoce al equipo detrás de RH Solutions",
-    url: "https://rh-solutions.vercel.app/nosotros",
+    description: "Conoce RH Solutions",
+    url: "https://rhsolutionsmx.com/nosotros",
     siteName: "RH Solutions",
     type: "website",
     images: [

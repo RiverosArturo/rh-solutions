@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: {
     title: "Ventajas de Digitalizar tu Negocio | RH Solutions",
     description: "Ahorra tiempo, reduce errores y potencia tu empresa con nuestras soluciones digitales.",
-    url: "https://rh-solutions.vercel.app/ventajas",
+    url: "https://rhsolutionsmx.com/ventajas",
     siteName: "RH Solutions",
     type: "website",
     images: [

@@ -8,7 +8,7 @@ export const metadata = {
     openGraph: {
         title: "Contáctanos | RH Solutions",
         description: "Agenda una asesoría gratuita con nuestros expertos en desarrollo y automatización.",
-        url: "https://rh-solutions.vercel.app/contacto",
+        url: "https://rhsolutionsmx.com/contacto",
         siteName: "RH Solutions",
         type: "website",
         images: [
@@ -26,7 +26,7 @@ export default function ContactoPage() {
         "@context": "https://schema.org",
         "@type": "ContactPage",
         "name": "Contacto - RH Solutions",
-        "url": "https://rhsolutionsmx.com//contacto",
+        "url": "https://rhsolutionsmx.com/contacto",
         "mainEntity": {
             "@type": "Organization",
             "name": "RH Solutions",

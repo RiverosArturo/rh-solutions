@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "Soluciones Digitales para Negocios | RH Solutions",
     description: "RH Solutions impulsa tu empresa con desarrollo web y automatización hecha a la medida.",
-    url: "https://res.cloudinary.com/dsu3au60t/image/upload/v1745367143/metadata_hxdnz0.png",
+    url: "https://rhsolutionsmx.com/",
     siteName: "RH Solutions",
     type: "website",
     images: [
@@ -27,7 +27,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "RH Solutions",
-    "url": "https://rh-solutions.vercel.app/",
+    "url": "https://rhsolutionsmx.com/",
   }
 
   return (
