@@ -24,7 +24,7 @@ export const Footer = () => {
             <FaFacebook />
           </Link>
           <Link
-            href="https://www.instagram.com/rhsolutions_oficial?igsh=OGozMjZqOW44YjZp"
+            href="https://www.instagram.com/rhsolutionsmx?igsh=OGozMjZqOW44YjZp"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"

@@ -86,7 +86,7 @@ export const Contacto = () => {
                         <FaFacebook />
                     </Link>
                     <Link
-                        href="https://www.instagram.com/rhsolutions_oficial?igsh=OGozMjZqOW44YjZp"
+                        href="https://www.instagram.com/rhsolutionsmx?igsh=OGozMjZqOW44YjZp"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-pink-500 hover:text-pink-600 transition"
