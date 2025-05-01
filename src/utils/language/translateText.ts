@@ -2,6 +2,7 @@ export const getNavLinks = (language: 'es' | 'en') => [
     { name: language === 'es' ? "Inicio" : "Home", href: "/" },
     { name: language === 'es' ? "Ventajas" : "Benefits", href: "/ventajas" },
     { name: language === 'es' ? "Nosotros" : "About Us", href: "/nosotros" },
+    { name: language === 'es' ?"Servicios" :"Services", href: "/servicios"},
     { name: language === 'es' ? "Nuestros Planes" : "Our Plans", href: "/plan" },
     { name: language === 'es' ? "Contacto" : "Contact Us", href: "/contacto" },
 ];

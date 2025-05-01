@@ -11,3 +11,6 @@ export * from './ui/Servicios';
 export * from './ui/Testimonios';
 export * from './ui/WhatsAppButton';
 export * from './ui/not-found/PageNotFound';
+export * from './ui/servicios/CallToAction';
+export * from './ui/servicios/Hero';
+export * from './ui/servicios/ServiciosList';
