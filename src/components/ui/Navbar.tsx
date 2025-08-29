@@ -39,11 +39,11 @@ export const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" onClick={closeDrawer} className="flex items-center gap-2">
           <Image
-            src="https://res.cloudinary.com/dsu3au60t/image/upload/v1745271496/logo_rhz1cv.png"
+            src="https://res.cloudinary.com/dsu3au60t/image/upload/v1756496449/letrasLogo_kxixrq.png"
             alt="RH Solutions Logo"
-            width={36}
-            height={36}
-            className="rounded-full shadow-sm"
+            width={45}
+            height={45}
+            // className="rounded-full shadow-sm"
             priority
             style={{ width: 'auto' }}
           />
