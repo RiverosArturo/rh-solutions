@@ -13,7 +13,7 @@ export const metadata = {
         type: "website",
         images: [
             {
-                url: "https://res.cloudinary.com/dsu3au60t/image/upload/v1745367143/metadata_hxdnz0.png",
+                url: "https://res.cloudinary.com/dsu3au60t/image/upload/v1756495727/logoRHS_tn5epp.png",
                 width: 1200,
                 height: 630,
             },

@@ -47,7 +47,7 @@ export default function ServiciosPage() {
             "@type": "Organization",
             "name": "RH Solutions",
             "url": "https://rhsolutionsmx.com",
-            "logo": "https://res.cloudinary.com/dsu3au60t/image/upload/v1745367143/metadata_hxdnz0.png",
+            "logo": "https://res.cloudinary.com/dsu3au60t/image/upload/v1756495727/logoRHS_tn5epp.png",
             "sameAs": [
                 "https://www.facebook.com/share/16VVFCaeCu/",
                 "https://www.instagram.com/rhsolutions_oficial?igsh=OGozMjZqOW44YjZp"
